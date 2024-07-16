@@ -17,9 +17,20 @@ def home():
 def predict():
     try:
         # Get the data from the form
-        data = [float(x) for x in request.form.values()]
-        prediction = model.predict([data])
-        return jsonify({'prediction': list(prediction)})
+        bilirubin = float(request.form['bilirubin'])
+        alk_phosphate = float(request.form['alk_phosphate'])
+        sgot = float(request.form['sgot'])
+        varices = int(request.form['varices'])
+        albumin = float(request.form['albumin'])
+        
+        # Create a feature array in the correct order expected by the model
+        features = np.array([[bilirubin, alk_phosphate, sgot, varices, albumin]])
+        
+        # Make a prediction
+        prediction = model.predict(features)
+        
+        # Return the result to the template
+        return render_template('index.html', result=prediction[0])
     except Exception as e:
         return str(e)
 
