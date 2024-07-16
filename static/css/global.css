@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-kaisei-decol: "Kaisei Decol";
+  
+    /* font sizes */
+    --font-size-3xl: 22px;
+    --font-size-lg: 18px;
+    --font-size-mini: 15px;
+    --font-size-base: 16px;
+  
+    /* Colors */
+    --color-cornflowerblue-100: #5878ca;
+    --color-cornflowerblue-200: #4479c9;
+    --color-gainsboro: #d9d9d9;
+    --color-black: #000;
+    --color-gray-100: rgba(0, 0, 0, 0.8);
+    --color-blue: #1028ff;
+  
+    /* Gaps */
+    --gap-base: 16px;
+    --gap-11xs: 2px;
+    --gap-14xl: 33px;
+  
+    /* Paddings */
+    --padding-xl: 20px;
+    --padding-5xl: 24px;
+    --padding-7xs: 6px;
+    --padding-xs: 12px;
+    --padding-4xs: 9px;
+    --padding-smi: 13px;
+    --padding-2xl: 21px;
+    --padding-5xs: 8px;
+    --padding-20xl: 39px;
+    --padding-7xl: 26px;
+    --padding-50xl: 69px;
+    --padding-15xl: 34px;
+  
+    /* Border radiuses */
+    --br-11xl: 30px;
+    --br-xl: 20px;
+  }

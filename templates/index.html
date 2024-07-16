@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klasifikasi Penyakit Hepatitis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Kaisei Decol', serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            border: 2px solid purple; /* Border berwarna ungu */
+        }
+        h1, h2 {
+            text-align: center;
+            color: purple; /* Teks berwarna ungu */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            color: purple; /* Teks label berwarna ungu */
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            border-color: purple; /* Border input berwarna ungu */
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: purple; /* Tombol berwarna ungu */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #800080; /* Warna ungu lebih gelap saat hover */
+        }
+        .result {
+            margin-top: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none; /* Non-draggable */
+            border-color: purple; /* Border textarea berwarna ungu */
+            color: purple; /* Teks textarea berwarna ungu */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Klasifikasi Penyakit Hepatitis</h1>
+        <h2>Menggunakan Algoritma SVM</h2>
+        <p>Alivia Dyatama Arisusanto (21.11.4123)</p>
+        <form action="/predict" method="post">
+            <label for="bilirubin">Masukkan Nilai Bilirubin</label>
+            <input type="text" id="bilirubin" name="bilirubin" placeholder="contoh : 1.2" required>
+            
+            <label for="alk_phosphate">Masukkan Nilai Alkaline Phosphate</label>
+            <input type="text" id="alk_phosphate" name="alk_phosphate" placeholder="contoh : 40" required>
+            
+            <label for="sgot">Masukkan Nilai SGOT</label>
+            <input type="text" id="sgot" name="sgot" placeholder="contoh : 40" required>
+            
+            <label for="varices">Masukkan Nilai Varices</label>
+            <input type="text" id="varices" name="varices" placeholder="contoh : 0 (Jika tidak memiliki varices), 1 (Jika memiliki varices)" required>
+            
+            <label for="albumin">Masukkan Nilai Albumin</label>
+            <input type="text" id="albumin" name="albumin" placeholder="contoh : 35" required>
+            
+            <button type="submit">Prediksi</button>
+        </form>
+        <div class="result">
+            {% if result %}
+            <textarea rows="4" cols="50" readonly>{{ result }}</textarea>
+            {% else %}
+            <textarea rows="4" cols="50" readonly>Hasil prediksi akan ditampilkan di sini</textarea>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
